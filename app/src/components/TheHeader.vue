@@ -1,6 +1,7 @@
 <template>
-    <p>Mudei kk</p>
-    <h1>❤️</h1>
+    <header class="header">
+        Header
+    </header>
 </template>
 
 <script>
@@ -11,7 +12,7 @@
 
 <style>
     .header {
-        background: #000;
-        color: white;
+        background: green;
+        color: #fff;
     }
 </style>
