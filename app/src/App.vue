@@ -1,5 +1,5 @@
 <template>
-  <TheHeader
+  <!--<TheHeader
     v-if="showHeader"
   />
 
@@ -8,25 +8,35 @@
     Sobrenome: {{ lastName }}
   </div>
 
-  <div v-if="accessLevel == 'admin'">Usuário Admin</div>
-  <div v-else-if="accessLevel === 'marketing'">Marketing</div>
-  <div v-else>User</div>
+  <div v-if="accessLevel === 'admin'">Usuário Admin</div>
+  <div v-else-if="accessLevel === 'marketing'">Usuário Marketing</div>
+  <div v-else>Usuário normal</div>-->
 
-  <img
+  <div>
+
+    <div
+      v-for="local in todos"
+      v-bind:key="local.id"
+    > 
+      {{ local.title }}
+    </div>
+
+  </div>
+
+  <!--<img
     alt="Vue logo"
     src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <HelloWorld msg="Welcome to Your Vue.js App"/>-->
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import TheHeader from './components/TheHeader'
+//import HelloWorld from './components/HelloWorld.vue'
+//import TheHeader from './components/TheHeader'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
-    TheHeader
+
   },
   data() {
     return {
@@ -35,6 +45,39 @@ export default {
       lastName: 'Snow',
       showName: false,
       accessLevel: 'admin',
+      todos: [
+      {
+          "userId": 1,
+          "id": 1,
+          "title": "delectus aut autem",
+          "completed": false
+      },
+      {
+          "userId": 1,
+          "id": 2,
+          "title": "quis ut nam facilis et officia qui",
+          "completed": false
+      },
+      {
+          "userId": 1,
+          "id": 3,
+          "title": "fugiat veniam minus",
+          "completed": false
+      },
+      {
+          "userId": 1,
+          "id": 4,
+          "title": "et porro tempora",
+          "completed": true
+      },
+      {
+          "userId": 1,
+          "id": 5,
+          "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
+          "completed": false
+      }
+    ]
+      
     }
   }
 }
@@ -47,6 +90,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin: 60px;
 }
 </style>
