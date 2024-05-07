@@ -14,11 +14,14 @@
 
   <div>
 
+    
+
     <div
-      v-for="local in todos"
-      v-bind:key="local.id"
+      v-for="(obj, index) in todos"
+      v-bind:key="obj.id"
+      class="todos-item"
     > 
-      {{ local.title }}
+      {{ index + 1}} - {{ obj.title }}
     </div>
 
   </div>
@@ -84,6 +87,13 @@ export default {
 </script>
 
 <style>
+.todos-item {
+  background: #000;
+  margin: 0 0 5px 0;
+  padding: 3px 6px;
+  color: #ffff;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
