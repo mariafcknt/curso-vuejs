@@ -14,22 +14,19 @@
 
   <div>
 
-    
-
     <div
       v-for="(obj, index) in todos"
-      v-bind:key="obj.id"
+      :key="obj.id"
       class="todos-item"
     > 
+      <img
+      v-if="obj.imgSrc"
+      v-bind:src="obj.imgSrc">
       {{ index + 1}} - {{ obj.title }}
     </div>
 
   </div>
 
-  <!--<img
-    alt="Vue logo"
-    src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>-->
 </template>
 
 <script>
@@ -48,18 +45,21 @@ export default {
       lastName: 'Snow',
       showName: false,
       accessLevel: 'admin',
+      
       todos: [
       {
           "userId": 1,
           "id": 1,
           "title": "delectus aut autem",
-          "completed": false
+          "completed": false,
+          "imgSrc": "https://via.placeholder.com/150"
       },
       {
           "userId": 1,
           "id": 2,
           "title": "quis ut nam facilis et officia qui",
-          "completed": false
+          "completed": false,
+          "imgSrc": "https://via.placeholder.com/150"
       },
       {
           "userId": 1,
@@ -98,7 +98,6 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin: 60px;
 }
