@@ -8,7 +8,7 @@
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde ducimus, harum magni blanditiis amet et iste facilis atque culpa voluptatem itaque quis magnam numquam nobis ipsum quia molestias doloremque temporibus?
     </p>
 
-    <p :style="{'color': 'cadetblue', 'background-color': 'black'}">
+    <p :style="styleClass">
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore totam iusto ipsa, asperiores corporis error, sunt neque, cupiditate possimus magnam hic voluptates atque! Sed quae explicabo nesciunt ipsam non est?
     </p>
 
@@ -38,6 +38,7 @@ export default {
     return {
       showHeader: true,
       classVar: 'title',
+      styleClass: {color: 'cadetblue', backgroundColor: 'black', 'font-size': '20px'},
       pClass: ['text', 'text-home'],
       todos: [
       {
