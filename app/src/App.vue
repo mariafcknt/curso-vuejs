@@ -1,18 +1,16 @@
 <template>
-  <!--<TheHeader
-    v-if="showHeader"
-  />
-
-  <div v-show="showName">
-    Nome: {{ firstName }} <br>
-    Sobrenome: {{ lastName }}
-  </div>
-
-  <div v-if="accessLevel === 'admin'">Usuário Admin</div>
-  <div v-else-if="accessLevel === 'marketing'">Usuário Marketing</div>
-  <div v-else>Usuário normal</div>-->
 
   <div>
+
+    <h1 :class="{ 'title': true, 'title-home': isHome }">Curso Vue 3</h1>
+
+    <p :class="pClass">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde ducimus, harum magni blanditiis amet et iste facilis atque culpa voluptatem itaque quis magnam numquam nobis ipsum quia molestias doloremque temporibus?
+    </p>
+
+    <p :style="{'color': 'cadetblue', 'background-color': 'black'}">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore totam iusto ipsa, asperiores corporis error, sunt neque, cupiditate possimus magnam hic voluptates atque! Sed quae explicabo nesciunt ipsam non est?
+    </p>
 
     <div
       v-for="(obj, index) in todos"
@@ -30,8 +28,6 @@
 </template>
 
 <script>
-//import HelloWorld from './components/HelloWorld.vue'
-//import TheHeader from './components/TheHeader'
 
 export default {
   name: 'App',
@@ -41,11 +37,8 @@ export default {
   data() {
     return {
       showHeader: true,
-      firstName: 'Jon',
-      lastName: 'Snow',
-      showName: false,
-      accessLevel: 'admin',
-      
+      classVar: 'title',
+      pClass: ['text', 'text-home'],
       todos: [
       {
           "userId": 1,
@@ -78,15 +71,31 @@ export default {
           "id": 5,
           "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
           "completed": false
-      }
-    ]
-      
+        }]
     }
   }
 }
 </script>
 
 <style>
+.title {
+  font-size: 20px;
+  color: blue;
+}
+
+.title-home {
+  font-size : 40px;
+  color: green;
+}
+
+.text {
+  color: #14a094;
+}
+
+.text-home {
+  color: purple;
+}
+
 .todos-item {
   background: #000;
   margin: 0 0 5px 0;
@@ -95,7 +104,7 @@ export default {
 }
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Avenir, Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
