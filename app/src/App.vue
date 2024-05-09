@@ -2,27 +2,82 @@
 
   <div>
 
-    <h1 :class="{ 'title': true, 'title-home': isHome }">Curso Vue 3</h1>
-
-    <p :class="pClass">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde ducimus, harum magni blanditiis amet et iste facilis atque culpa voluptatem itaque quis magnam numquam nobis ipsum quia molestias doloremque temporibus?
-    </p>
-
-    <p :style="styleClass">
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore totam iusto ipsa, asperiores corporis error, sunt neque, cupiditate possimus magnam hic voluptates atque! Sed quae explicabo nesciunt ipsam non est?
-    </p>
-
-    <div
-      v-for="(obj, index) in todos"
-      :key="obj.id"
-      class="todos-item"
-    > 
-      <img
-      v-if="obj.imgSrc"
-      v-bind:src="obj.imgSrc">
-      {{ index + 1}} - {{ obj.title }}
+    <div>
+      One-way data binding <br>
+      Two-way data binding <br>
+      v-model -> formulários
     </div>
 
+    <br><br>
+
+    <div>
+      <label>Nome</label><br>
+      <input
+        v-model="name"
+        type="text"
+      > <br>
+      {{ name }}
+
+      <br><br>
+
+      <div>
+        <label>Sports</label><br>
+        <select v-model="sports">
+          <option value="">Escolha</option>
+          <option value="futebol">Futebol</option>
+          <option value="skate">Skate</option>
+          <option value="tenis">Tenis</option>
+        </select> <br>
+        {{ sports }}
+      </div>
+
+      <br><br>
+
+      <div>
+        <label>Newsletter</label> <br>
+        <input
+          v-model="newsletter"
+          type="radio"
+          value="Sim"
+        > Sim
+        <input
+          v-model="newsletter"
+          type="radio"
+          value="Não"
+        > Não <br>
+        {{ newsletter }}
+      </div>
+
+      <br><br>
+
+      <div>
+        <label>Contrato</label> <br>
+        <input
+          v-model="contract"
+          type="checkbox"
+        > Aceita nossos termos... <br>
+        {{ contract }}
+      </div>
+
+      <br><br>
+
+      <div>
+        <label>Cores que você mais gosta</label> <br>
+        <input
+          v-model="colors"
+          type="checkbox"
+          value="Azul"
+        > Azul 
+
+        <input
+          v-model="colors"
+          type="checkbox"
+          value="Amarelo"
+        > Amarelo <br>
+        {{ colors }}
+      </div>
+
+    </div>
   </div>
 
 </template>
@@ -36,43 +91,11 @@ export default {
   },
   data() {
     return {
-      showHeader: true,
-      classVar: 'title',
-      styleClass: {color: 'cadetblue', backgroundColor: 'black', 'font-size': '20px'},
-      pClass: ['text', 'text-home'],
-      todos: [
-      {
-          "userId": 1,
-          "id": 1,
-          "title": "delectus aut autem",
-          "completed": false,
-          "imgSrc": "https://via.placeholder.com/150"
-      },
-      {
-          "userId": 1,
-          "id": 2,
-          "title": "quis ut nam facilis et officia qui",
-          "completed": false,
-          "imgSrc": "https://via.placeholder.com/150"
-      },
-      {
-          "userId": 1,
-          "id": 3,
-          "title": "fugiat veniam minus",
-          "completed": false
-      },
-      {
-          "userId": 1,
-          "id": 4,
-          "title": "et porro tempora",
-          "completed": true
-      },
-      {
-          "userId": 1,
-          "id": 5,
-          "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
-          "completed": false
-        }]
+      name: '',
+      sports: 'futebol',
+      newsletter: '',
+      contract: 'true',
+      colors: [] 
     }
   }
 }
