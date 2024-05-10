@@ -1,34 +1,17 @@
 <template>
   <div>
-
-    <button @click.once="onClick">
-      Enviar
-    </button>
-
-    <br><br>
-
-    <div @mouseover="onMouseOver"
-        @mouseout="onMouseOut()" 
-    >
-      Mouse over
-    </div>
-
-    <br><br>
-
-    <form
-      action="https://google.com"
-      v-on:submit.prevent="onSubmit"
-    >
-      <input 
-        type="text"
-        @keyup.enter="onKeyUp"
-      >
-      <button type=submit>
-        Enviar
-      </button>
-    </form>
-    
+    {{ fullName }}
   </div>
+  
+  <br><br>
+
+  <div
+    v-for="todo in todos"
+    :key="todo.id"
+  >
+    {{ todo.title }} <span>{{ todo.completed }}</span>
+  </div>
+
 </template>
 
 <script>
@@ -40,25 +23,55 @@ export default {
   },
   data() {
     return {
-      
+      user: {
+        first_name: 'Jon',
+        last_name: 'Snow',
+      },
+      todos: [
+      {
+          "userId": 1,
+          "id": 1,
+          "title": "delectus aut autem",
+          "completed": false,
+          "imgSrc": "https://via.placeholder.com/150"
+      },
+      {
+          "userId": 1,
+          "id": 2,
+          "title": "quis ut nam facilis et officia qui",
+          "completed": false,
+          "imgSrc": "https://via.placeholder.com/150"
+      },
+      {
+          "userId": 1,
+          "id": 3,
+          "title": "fugiat veniam minus",
+          "completed": false
+      },
+      {
+          "userId": 1,
+          "id": 4,
+          "title": "et porro tempora",
+          "completed": true
+      },
+      {
+          "userId": 1,
+          "id": 5,
+          "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
+          "completed": false
+      }]
     }
   },
 
+  computed: {
+    fullName() {
+      return `${this.user.first_name} ${this.user.last_name}`
+   },
+  },
+
   methods: {
-    onClick($evt) {
-      console.log('click', $evt)
-    },
-    onMouseOver($evt) {
-      console.log('mouse over', $evt)
-    },
-    onMouseOut() {
-      console.log('mouse out')
-    },
-    onSubmit() {
-      console.log('submit')
-    },
-    onKeyUp($evt) {
-      console.log('onKeyUp', $evt)
+    click() {
+      console.log(this.user)
     }
   }
 }
