@@ -1,15 +1,42 @@
 <template>
   <div>
-    {{ fullName }}
+  <!-- {{ fullName }}--> 
+  <h1>Lista de tarefas 🗒️</h1>
   </div>
   
   <br><br>
+
+  <h2>To-dos</h2>
 
   <div
     v-for="todo in todos"
     :key="todo.id"
   >
-    {{ todo.title }} <span>{{ todo.completed }}</span>
+    <input
+      v-model="todo.completed"
+      type="checkbox"
+    >
+    {{ todo.title }}
+  </div>
+
+  <br><br>
+
+  <h2>To-dos em aberto</h2>
+
+  <div
+    v-for="todo in uncompletedTodos"
+    :key="todo.id"
+  >
+  🖋️ {{ todo.title }} 
+  </div>
+
+  <h2>To-dos concluídas</h2>
+
+  <div
+    v-for="todo in completedTodos"
+    :key="todo.id"
+  >
+    <span> ✨ {{ todo.title }} </span>
   </div>
 
 </template>
@@ -59,7 +86,8 @@ export default {
           "id": 5,
           "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
           "completed": false
-      }]
+        }
+      ]
     }
   },
 
@@ -67,6 +95,14 @@ export default {
     fullName() {
       return `${this.user.first_name} ${this.user.last_name}`
    },
+
+    uncompletedTodos() {
+      return this.todos.filter(todo => !todo.completed);
+    },
+
+    completedTodos() {
+      return this.todos.filter(todo => todo.completed);
+    }
   },
 
   methods: {
@@ -85,6 +121,14 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   margin: 60px;
+}
+
+h2 {
+  color: green;
+}
+
+h1 {
+  color: rgb(4, 104, 4);
 }
 
 </style>
