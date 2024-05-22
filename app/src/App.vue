@@ -22,6 +22,7 @@
     {{ user.first_name }} {{ user.last_name }} 
 
   <br><br><br>
+  
   <select v-model="pageCount">
     <option value="5">5</option>
     <option value="10">10</option>
