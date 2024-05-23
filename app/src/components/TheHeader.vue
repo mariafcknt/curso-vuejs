@@ -6,13 +6,19 @@
 
 <script>
     export default {
-
+        beforeUnmount() {
+            console.log("beforeUnmount");
+        },
+        unmounted() {
+            console.log("unmounted");
+        },
     }
 </script>
 
 <style>
     .header {
-        background: green;
+        background: black;
         color: #fff;
+        padding: 5px;
     }
 </style>
