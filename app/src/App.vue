@@ -2,16 +2,29 @@
   
   <div>
 
+    <TheHeader>
+      
+      <template v-slot:description>
+        <p>Description</p>
+      </template>
+
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+
+    </TheHeader>
+
+    
+
   </div>
 
 </template>
 
 <script>
+import TheHeader from '@/components/TheHeader.vue';
 
 export default {
   name: 'App',
   components: {
-
+    TheHeader
   },
   data() {
     return {
