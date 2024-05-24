@@ -1,17 +1,18 @@
 <template>
   
   <div>
-
+    <BaseAlert variant="success"></BaseAlert>
   </div>
 
 </template>
 
 <script>
+import BaseAlert from '@/components/BaseAlert.vue'
 
 export default {
   name: 'App',
   components: {
-
+    BaseAlert
   },
   data() {
     return {
