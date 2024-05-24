@@ -35,13 +35,14 @@ export default {
       showHeader: true,
     }
   },
-
+  
+/* 
   beforeUpdate() {
     console.log('beforeUpdate');
   },
   updated() {
     console.log('updated');
-  },
+  }, */
   /* beforeCreate(){
     console.log("beforeCreate");
     console.log('Estado: ', this.name);
