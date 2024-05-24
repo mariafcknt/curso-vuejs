@@ -1,10 +1,21 @@
 <template>
 
-  <TheHeader />
+  <TheHeader v-if="showHeader"/>
   
   <div>
     <h1>Hello World</h1>
+    <br>
+    <input 
+      v-model="name"
+      type="text"
+    >
     {{ name }}
+
+    <br>
+
+    <button @click="toggleHeader">
+      Ativar e desativar header
+    </button>
   </div>
 
 </template>
@@ -20,10 +31,17 @@ export default {
   },
   data() {
     return {
-      name: 'Jon Snow'
+      name: 'Jon Snow',
+      showHeader: true,
     }
   },
 
+  beforeUpdate() {
+    console.log('beforeUpdate');
+  },
+  updated() {
+    console.log('updated');
+  },
   /* beforeCreate(){
     console.log("beforeCreate");
     console.log('Estado: ', this.name);
@@ -60,7 +78,12 @@ export default {
   },
 
   methods: {
-
+    toggleHeader() {
+      this.showHeader = !this.showHeader
+    },
+    deactivateHeader() {
+      this.showHeader = false;
+    }
   }
 }
 </script>
