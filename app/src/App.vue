@@ -1,17 +1,20 @@
 <template>
+
+  <p class=card>Teste</p>
   
   <div>
-
+    <BaseCard></BaseCard>
   </div>
 
 </template>
 
 <script>
+import BaseCard from '@/components/BaseCard.vue';
 
 export default {
   name: 'App',
   components: {
-
+    BaseCard
   },
   data() {
     return {
