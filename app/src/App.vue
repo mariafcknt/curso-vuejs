@@ -1,7 +1,12 @@
 <template>
   
   <div>
-    <BaseAlert variant="success"></BaseAlert>
+    <BaseAlert
+      :variant="variant"
+    >
+    {{ text }}
+  </BaseAlert>
+
   </div>
 
 </template>
@@ -16,7 +21,8 @@ export default {
   },
   data() {
     return {
-      
+      variant: 'success',
+      text:"Seu formulário foi enviado"
     }
   },
 
