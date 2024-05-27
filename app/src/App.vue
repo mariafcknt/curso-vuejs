@@ -2,7 +2,9 @@
   
   <div>
     <BaseAlert
+      v-if="showAlert"
       :variant="variant"
+      @close="onClose"
     >
     {{ text }}
   </BaseAlert>
@@ -21,6 +23,7 @@ export default {
   },
   data() {
     return {
+      showAlert: true,
       variant: 'success',
       text:"Seu formulário foi enviado"
     }
@@ -31,7 +34,10 @@ export default {
   },
 
   methods: {
-
+    onClose() {
+      this.showAlert = false;
+      console.log('on close');
+    }
   }
 }
 </script>
